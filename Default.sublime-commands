@@ -1,0 +1,70 @@
+[
+    {
+        "caption": "Perforce: Login",
+        "command": "perforce_login"
+    },
+    {
+        "caption": "Perforce: Checkout",
+        "command": "perforce_checkout"
+    },
+    {
+        "caption": "Perforce: Add",
+        "command": "perforce_add"
+    },
+    {
+        "caption": "Perforce: Revert",
+        "command": "perforce_revert"
+    },
+    {
+        "caption": "Perforce: Rename",
+        "command": "perforce_rename"
+    },
+    {
+        "caption": "Perforce: Delete",
+        "command": "perforce_delete"
+    },
+    {
+        "caption": "Perforce: Diff",
+        "command": "perforce_diff"
+    },
+    {
+        "caption": "Perforce: Graphical Diff with Depot",
+        "command": "perforce_graphical_diff_with_depot"
+    },
+    {
+        "caption": "Perforce: Select Graphical Diff Application",
+        "command": "perforce_select_graphical_diff_application"
+    },
+    {
+        "caption": "Perforce: List Checkedout Files",
+        "command": "perforce_list_checked_out_files"
+    },
+    {
+        "caption": "Perforce: Create Changelist",
+        "command": "perforce_create_changelist"
+    },
+    {
+        "caption": "Perforce: Move Current File To Changelist",
+        "command": "perforce_move_current_file_to_changelist"
+    },
+    {
+        "caption": "Perforce: Add Line To Changelist Description",
+        "command": "perforce_add_line_to_changelist_description"
+    },
+    {
+        "caption": "Perforce: Submit",
+        "command": "perforce_submit"
+    },
+    {
+        "caption": "Perforce: Logout",
+        "command": "perforce_logout"
+    },
+    {
+        "caption": "Perforce: Shelve Changelist",
+        "command": "perforce_shelve_cl"
+    },
+    {
+        "caption": "Perforce: Unshelve Changelist",
+        "command": "perforce_unshelve_cl"
+    }
+]
