@@ -64,6 +64,8 @@ def GetUserFromClientspec():
     command = ConstructCommand('p4 info')
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     if(err):
         WarnUser("usererr " + err.strip())
@@ -89,6 +91,8 @@ def GetClientRoot(in_dir):
     command = ConstructCommand('p4 info')
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     if(err):
         WarnUser(err.strip())
@@ -157,6 +161,8 @@ def GetPendingChangelists():
 
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
     if(not err):
         return 1, result
     return 0, result
@@ -166,6 +172,8 @@ def AppendToChangelistDescription(changelist, input):
     command = ConstructCommand('p4 change -o ' + changelist)
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     if(err):
         return 0, err
@@ -203,6 +211,8 @@ def AppendToChangelistDescription(changelist, input):
     command = ConstructCommand('p4 change -i < ' + temp_changelist_description_file.name)
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     # Clean up
     os.unlink(temp_changelist_description_file.name)
@@ -216,6 +226,8 @@ def PerforceCommandOnFile(in_command, in_folder, in_filename):
     command = ConstructCommand('p4 ' + in_command + ' "' + in_filename + '"')
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     if(not err):
         return 1, result.strip()
@@ -353,6 +365,8 @@ def Rename(in_filename, in_newname):
     command = ConstructCommand('p4 integrate -d -t -Di -f "' + in_filename + '" "' + in_newname + '"')
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     if(err):
         return 0, err.strip()
@@ -360,6 +374,8 @@ def Rename(in_filename, in_newname):
     command = ConstructCommand('p4 delete "' + in_filename + '" "' + in_newname + '"')
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     if(not err):
         return 1, result.strip()
@@ -493,6 +509,8 @@ class GraphicalDiffThread(threading.Thread):
         
         p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
         result, err = p.communicate()
+        result = result.decode("utf-8")
+        err = err.decode("utf-8")
 
         # Clean up
         os.unlink(tmp_file.name);
@@ -574,6 +592,8 @@ class ListCheckedOutFilesThread(threading.Thread):
         command = ConstructCommand('p4 opened -c ' + in_changelistline[1] + ' -u ' + currentuser)
         p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
         result, err = p.communicate()
+        result = result.decode("utf-8")
+        err = err.decode("utf-8")
         if(not err):
             lines = result.splitlines()
             for line in lines:
@@ -606,6 +626,8 @@ class ListCheckedOutFilesThread(threading.Thread):
 
         p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
         result, err = p.communicate()
+        result = result.decode("utf-8")
+        err = err.decode("utf-8")
 
         if(not err):
             changelists = result.splitlines()
@@ -647,6 +669,8 @@ def CreateChangelist(description):
     command = ConstructCommand('p4 change -o')   
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     if(err):
         return 0, err
@@ -670,6 +694,8 @@ def CreateChangelist(description):
     command = ConstructCommand('p4 change -i < ' + temp_changelist_description_file.name)
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     # Clean up
     os.unlink(temp_changelist_description_file.name)
@@ -702,6 +728,8 @@ def MoveFileToChangelist(in_filename, in_changelist):
     command = ConstructCommand('p4 reopen -c ' + in_changelist + ' "' + filename + '"')
     p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
     result, err = p.communicate()
+    result = result.decode("utf-8")
+    err = err.decode("utf-8")
 
     if(err):
         return 0, err
@@ -871,6 +899,9 @@ class SubmitThread(threading.Thread):
         command = ConstructCommand('p4 opened -c default -u ' + currentuser)
         p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
         result, err = p.communicate()
+        result = result.decode("utf-8")
+        err = err.decode("utf-8")
+
         if err:
             resultchangelists.pop()
 
@@ -911,6 +942,8 @@ class SubmitThread(threading.Thread):
             command = ConstructCommand('p4 submit')
         p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
         result, err = p.communicate()
+        result = result.decode("utf-8")
+        err = err.decode("utf-8")
     
     def on_description_change(self, input):
         pass
@@ -998,6 +1031,8 @@ class ShelveClCommand(threading.Thread):
         command = ConstructCommand("p4 " + cmdString)
         p = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=global_folder, shell=True)
         result, err = p.communicate()
+        result = result.decode("utf-8")
+        err = err.decode("utf-8")
 
         if(err):
             WarnUser("usererr " + err.strip())
