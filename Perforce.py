@@ -343,6 +343,11 @@ class PerforceAutoAdd(sublime_plugin.EventListener):
             return
 
         folder_name, filename = os.path.split(view.file_name())
+
+        if(not IsFolderUnderClientRoot(folder_name)):
+            WarnUser("Adding file outside of clientspec, ignored for auto add")
+            return
+
         self.preSaveIsFileInDepot = IsFileInDepot(folder_name, filename)
 
     def on_post_save(self, view):
