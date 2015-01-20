@@ -37,9 +37,9 @@ def ConstructCommand(in_command):
     p4Env = perforce_settings.get('perforce_p4env')
     command = ''
     if(p4Env and p4Env != ''):
-        command = 'source {0} && '.format(p4Env)
+        command = '. {0} && '.format(p4Env)
     elif(sublime.platform() == "osx"):
-        command = 'source ~/.bash_profile && '
+        command = '. ~/.bash_profile && '
     # Revert change until threading is fixed
     # command = getPerforceConfigFromPreferences(command)
     command += in_command
