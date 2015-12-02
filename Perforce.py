@@ -35,11 +35,14 @@ perforceplugin_dir = os.getcwd()
 def ConstructCommand(in_command):
     perforce_settings = sublime.load_settings('Perforce.sublime-settings')
     p4Env = perforce_settings.get('perforce_p4env')
+    p4Path = perforce_settings.get('perforce_p4path')
+    if ( p4Path == None or p4Path == '' ):
+        p4Path = ''
     command = ''
     if(p4Env and p4Env != ''):
-        command = '. {0} && '.format(p4Env)
+        command = '. {0} && {1}'.format(p4Env, p4Path)
     elif(sublime.platform() == "osx"):
-        command = '. ~/.bash_profile && '
+        command = '. ~/.bash_profile && {0}'.format(p4Path)
     # Revert change until threading is fixed
     # command = getPerforceConfigFromPreferences(command)
     command += in_command
