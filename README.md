@@ -8,6 +8,16 @@ The preferred method is to use the [Sublime Package Manager](http://wbond.net/su
 
     $ https://github.com/ericmartel/Sublime-Text-3-Perforce-Plugin
     
+Once you have downloaded the plugin into Sublime, you need to ensure the plugin knows your P4 details.  You have two options, either to set the required variables on the command line
+
+    > p4 set P4CLIENT=workspace_name
+    > p4 set P4PORT=my.perforceserver.com:1666
+    > p4 set P4USER=myusername 
+
+You can also place a P4CONFIG in your workspace root and it will load from there.
+
+You can then login to perforce from the Tools|Perforce|Login command.
+    
 ### Install Note
 
 If the plugin is unable to use your p4, it is possible that it keeps reporting that the file is not under the client root.  User @JLoppert suggests creating a symlink under OSX/Linux
