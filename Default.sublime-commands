@@ -8,6 +8,10 @@
         "command": "perforce_checkout"
     },
     {
+        "caption": "Perforce: Checkout All Open Files",
+        "command": "perforce_checkout_all_open_files"
+    },
+    {
         "caption": "Perforce: Add",
         "command": "perforce_add"
     },
@@ -66,5 +70,37 @@
     {
         "caption": "Perforce: Unshelve Changelist",
         "command": "perforce_unshelve_cl"
-    }
+    },
+    {
+        "caption": "Perforce: View File History",
+        "command": "perforce_view_file_history"
+    },
+    {
+        "caption": "Perforce: View Properties",
+        "command": "perforce_view_properties"
+    },
+    {
+        "caption": "Perforce: View Diff Dialog",
+        "command": "perforce_view_diff_dialog"
+    },
+    {
+        "caption": "Perforce: View Previous Diff",
+        "command": "perforce_view_previous_diff"
+    },
+    {
+        "caption": "Perforce: View Time Lapse View",
+        "command": "perforce_view_time_lapse_view"
+    },
+    {
+        "caption": "Perforce: View Tree",
+        "command": "perforce_view_tree"
+    },
 ]
+
+
+
+
+
+
+
+
