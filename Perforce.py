@@ -31,79 +31,37 @@ class PerforceP4CONFIGHandler(sublime_plugin.EventListener):
 # Executed at startup to store the path of the plugin... necessary to open files relative to the plugin
 perforceplugin_dir = os.getcwd()
 
+def RunPerforceSpecialCommand(fileName, command):
+    port = GetServerAddressFromClientspec()
+    userName = GetUserFromClientspec()
+    client = GetClientNameFromClientspec()
+
+    command = "p4v.exe -p {} -c {} -u {} -cmd \"{} {}\"".format(port, client, userName, command, fileName)
+    subprocess.call(command, shell=True)
+
 class PerforceViewFileHistoryCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        fileName = self.view.file_name()
-        port = GetServerAddressFromClientspec()
-        userName = GetUserFromClientspec()
-        client = GetClientNameFromClientspec()
-
-        import subprocess
-        command = "p4v.exe -p {} -c {} -u {} -cmd \"history {}\"".format(port, client, userName, fileName)
-        print(command)
-        subprocess.call(command, shell=True)
+        RunPerforceSpecialCommand(self.view.file_name(), "history")
 
 class PerforceViewPropertiesCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        fileName = self.view.file_name()
-        port = GetServerAddressFromClientspec()
-        userName = GetUserFromClientspec()
-        client = GetClientNameFromClientspec()
-
-        import subprocess
-        command = "p4v.exe -p {} -c {} -u {} -cmd \"properties {}\"".format(port, client, userName, fileName)
-        print(command)
-        subprocess.call(command, shell=True)
+        RunPerforceSpecialCommand(self.view.file_name(), "properties")
 
 class PerforceViewDiffDialogCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        fileName = self.view.file_name()
-        port = GetServerAddressFromClientspec()
-        userName = GetUserFromClientspec()
-        client = GetClientNameFromClientspec()
-
-        import subprocess
-        command = "p4v.exe -p {} -c {} -u {} -cmd \"diffdialog {}\"".format(port, client, userName, fileName)
-        print(command)
-        subprocess.call(command, shell=True)
+        RunPerforceSpecialCommand(self.view.file_name(), "diffdialog")
 
 class PerforceViewPreviousDiffCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        fileName = self.view.file_name()
-        port = GetServerAddressFromClientspec()
-        userName = GetUserFromClientspec()
-        client = GetClientNameFromClientspec()
-
-        import subprocess
-        command = "p4v.exe -p {} -c {} -u {} -cmd \"prevdiff {}\"".format(port, client, userName, fileName)
-        print(command)
-        subprocess.call(command, shell=True)
+        RunPerforceSpecialCommand(self.view.file_name(), "prevdiff")
 
 class PerforceViewTimeLapseViewCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        fileName = self.view.file_name()
-        port = GetServerAddressFromClientspec()
-        userName = GetUserFromClientspec()
-        client = GetClientNameFromClientspec()
-
-        import subprocess
-        command = "p4v.exe -p {} -c {} -u {} -cmd \"annotate {}\"".format(port, client, userName, fileName)
-        print(command)
-        subprocess.call(command, shell=True)
+        RunPerforceSpecialCommand(self.view.file_name(), "annotate")
 
 class PerforceViewTreeCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        fileName = self.view.file_name()
-        port = GetServerAddressFromClientspec()
-        userName = GetUserFromClientspec()
-        client = GetClientNameFromClientspec()
-
-        import subprocess
-        command = "p4v.exe -p {} -c {} -u {} -cmd \"tree {}\"".format(port, client, userName, fileName)
-        print(command)
-        subprocess.call(command, shell=True)
-
-
+        RunPerforceSpecialCommand(self.view.file_name(), "tree")
 
 # Utility functions
 def ConstructCommand(in_command):
