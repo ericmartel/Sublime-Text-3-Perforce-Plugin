@@ -16,34 +16,28 @@
                         "caption": "Login"
                     },
                     {
-                        "caption": "P4V Utilities",
-                        "children":
-                        [
-                            {
-                                "caption": "Perforce: View File History",
-                                "command": "perforce_view_file_history",
-                            },
-                            {
-                                "caption": "Perforce: View Properties",
-                                "command": "perforce_view_properties",
-                            },
-                            {
-                                "caption": "Perforce: View Diff Dialog",
-                                "command": "perforce_view_diff_dialog",
-                            },
-                            {
-                                "caption": "Perforce: View Previous Diff",
-                                "command": "perforce_view_previous_diff",
-                            },
-                            {
-                                "caption": "Perforce: View Time Lapse View",
-                                "command": "perforce_view_time_lapse_view",
-                            },
-                            {
-                                "caption": "Perforce: View Tree",
-                                "command": "perforce_view_tree",
-                            },
-                        ]
+                        "command": "perforce_view_file_history",
+                        "caption": "View File History",
+                    },
+                    {
+                        "command": "perforce_view_properties",
+                        "caption": "View Properties",
+                    },
+                    {
+                        "command": "perforce_view_diff_dialog",
+                        "caption": "View Diff Dialog",
+                    },
+                    {
+                        "command": "perforce_view_previous_diff",
+                        "caption": "View Previous Diff",
+                    },
+                    {
+                        "command": "perforce_view_time_lapse_view",
+                        "caption": "View Time Lapse View",
+                    },
+                    {
+                        "command": "perforce_view_tree",
+                        "caption": "View Tree",
                     },
                     {
                         "command": "perforce_add",
