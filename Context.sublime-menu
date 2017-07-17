@@ -14,6 +14,30 @@
                 "caption": "Login"
             },
             {
+                "command": "perforce_view_file_history",
+                "caption": "View File History",
+            },
+            {
+                "command": "perforce_view_properties",
+                "caption": "View Properties",
+            },
+            {
+                "command": "perforce_view_diff_dialog",
+                "caption": "View Diff Dialog",
+            },
+            {
+                "command": "perforce_view_previous_diff",
+                "caption": "View Previous Diff",
+            },
+            {
+                "command": "perforce_view_time_lapse_view",
+                "caption": "View Time Lapse View",
+            },
+            {
+                "command": "perforce_view_tree",
+                "caption": "View Tree",
+            },
+            {
                 "command": "perforce_add",
                 "caption": "Add"
             },
@@ -27,11 +51,11 @@
             },
             {
                 "command": "perforce_create_changelist",
-                "caption": "Create Changelist" 
+                "caption": "Create Changelist"
             },
             {
                 "command": "perforce_delete",
-                "caption": "Delete" 
+                "caption": "Delete"
             },
             {
                 "command": "perforce_diff",
@@ -50,14 +74,14 @@
                         "caption": "Select Diff Application"
                     }
                 ]
-            },            
+            },
             {
                 "command": "perforce_list_checked_out_files",
                 "caption": "List Checked Out Files"
             },
             {
                 "command": "perforce_move_current_file_to_changelist",
-                "caption": "Move Current File To Changelist"                        
+                "caption": "Move Current File To Changelist"
             },
             {
                 "command": "perforce_rename",
